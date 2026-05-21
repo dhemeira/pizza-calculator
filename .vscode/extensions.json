@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "lokalise.i18n-ally",
+    "yoavbls.pretty-ts-errors",
+    "usernamehw.errorlens",
+    "mikestead.dotenv",
+    "christian-kohler.path-intellisense",
+    "editorconfig.editorconfig"
+  ]
+}
