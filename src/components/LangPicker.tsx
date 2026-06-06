@@ -20,7 +20,7 @@ function LangPicker() {
           <button
             key={lng}
             className={
-              'w-full rounded-full text-center vertical-center font-medium z-10 transition-colors duration-300 ease-in-out ' +
+              'w-full rounded-full text-base text-center vertical-center font-medium z-10 transition-colors duration-300 ease-in-out ' +
               (i18n.resolvedLanguage === lng ? 'text-surface' : 'text-text')
             }
             onClick={() => {
