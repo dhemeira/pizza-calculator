@@ -1,5 +1,7 @@
 {
-  "title": "Kicsi pizza <color>vagy</color> egy nagy?",
+  "title": "Kicsi pizza <br/><color>vagy</color> egy nagy?",
   "eyebrow": "Ár-Érték Összehasonlítás",
-  "heroText": "Töltsd ki a részleteket - nézd meg melyik opcióval kapsz több pizzát a pénzedért, és pontosan mennyit is kapsz."
+  "heroText": "Töltsd ki a részleteket - nézd meg melyik opcióval kapsz több pizzát a pénzedért, és pontosan mennyit is kapsz.",
+  "smallPizza": "Kicsi Pizza",
+  "bigPizza": "Nagy Pizza"
 }
