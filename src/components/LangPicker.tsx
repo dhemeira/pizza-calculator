@@ -6,23 +6,30 @@ const lngs: Record<string, { displayName: string }> = {
 };
 
 function LangPicker() {
+  const keys = Object.keys(lngs);
+  const activeIndex = keys.indexOf(i18n.resolvedLanguage ?? 'en');
+  const translateX = `translateX(${String(activeIndex * 100)}%)`;
   return (
-    <div className="flex gap-2">
-      {Object.keys(lngs).map((lng) => (
-        <button
-          className={
-            'px-2 py-1 border rounded ' +
-            (i18n.resolvedLanguage === lng
-              ? 'bg-blue-500 text-white font-bold'
-              : 'bg-surface text-gray-700 font-normal')
-          }
-          key={lng}
-          onClick={() => {
-            void i18n.changeLanguage(lng);
-          }}>
-          {lngs[lng].displayName}
-        </button>
-      ))}
+    <div className="w-full justify-end flex">
+      <div className="relative flex gap-0 p-1 rounded-full bg-surface border border-border w-24 h-9">
+        <span
+          className="absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-accent transition-transform duration-300 ease-in-out"
+          style={{ transform: translateX }}
+        />
+        {keys.map((lng) => (
+          <button
+            key={lng}
+            className={
+              'w-full rounded-full text-center vertical-center font-medium z-10 transition-colors duration-300 ease-in-out ' +
+              (i18n.resolvedLanguage === lng ? 'text-surface' : 'text-text')
+            }
+            onClick={() => {
+              void i18n.changeLanguage(lng);
+            }}>
+            {lngs[lng].displayName}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
