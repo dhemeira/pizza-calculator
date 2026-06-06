@@ -1,5 +1,17 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-accent: #c8442c;
+  --color-border: #e0d2b8;
+  --color-background: #faf4e8;
   --color-surface: #ffffff;
+  --color-text: #2a1810;
+  --color-text-muted: #6b5544;
+  --color-bg-grain: #f5efe0;
+  --color-surface-dark: #f2ead7;
+  --color-success: #5f7a3d;
+  --color-success-bg: #e8ebd3;
+  --font-sans: 'Inter Variable', sans-serif;
+  --font-title: 'Fraunces Variable', serif;
+  --default-font-family: 'Inter Variable', sans-serif;
 }
