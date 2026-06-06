@@ -1,16 +1,14 @@
-import viteSvg from '~/assets/vite.svg';
 import { useTranslation } from 'react-i18next';
 import LangPicker from './components/LangPicker';
+import HeroSection from './components/HeroSection';
 
 function App() {
-  const { t } = useTranslation();
-
+  useTranslation();
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+      <div className="p-4 container flex flex-col items-center gap-7 mx-auto min-h-screen">
         <LangPicker />
-        <h1 className="text-3xl font-bold">{t('title')}</h1>
-        <img src={viteSvg} alt="Vite logo" />
+        <HeroSection />
       </div>
     </>
   );

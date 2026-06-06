@@ -15,3 +15,9 @@
   --font-title: 'Fraunces Variable', serif;
   --default-font-family: 'Inter Variable', sans-serif;
 }
+
+@layer base {
+  body {
+    @apply bg-background;
+  }
+}
