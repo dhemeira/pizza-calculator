@@ -12,7 +12,7 @@ interface PizzaCircleProps {
 function PizzaCircle({ count, label, area, ratio }: PizzaCircleProps) {
   return (
     <div className="flex flex-1 flex-col items-center justify-between gap-2 self-stretch">
-      <div className="flex flex-1 items-center justify-center self-stretch">
+      <div className="flex flex-1 items-center justify-center self-stretch" aria-hidden="true">
         <div
           className="rounded-full bg-yellow-800"
           style={{ width: `${(ratio * 100).toFixed(2)}%`, padding: `${(ratio * 8).toFixed(2)}%` }}>

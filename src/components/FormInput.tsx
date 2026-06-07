@@ -13,6 +13,7 @@ function FormInput({
   size: 'small' | 'big';
 }) {
   const id = useId();
+  const clampId = useId();
   const { t } = useTranslation();
   const { small, big, setSmall, setBig } = usePizza();
   const [clamped, setClamped] = useState(false);
@@ -54,6 +55,7 @@ function FormInput({
           id={id}
           className="border-border bg-bg-grain text-text focus:ring-accent placeholder:text-text-muted w-full rounded-xl border p-3 text-base font-medium placeholder:opacity-75 focus:ring-1 focus:outline-none"
           value={formatNumber(values[type])}
+          aria-describedby={clamped ? clampId : undefined}
           onChange={handleChange}
           onBlur={handleBlur}
         />
@@ -64,7 +66,7 @@ function FormInput({
         )}
       </div>
       {clamped && (
-        <p className="text-success text-xs font-medium">
+        <p id={clampId} role="alert" className="text-success text-xs font-medium">
           {t('clampedRange', {
             min: formatNumber(min),
             max: formatNumber(max),
