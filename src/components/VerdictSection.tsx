@@ -1,19 +1,19 @@
 import { Trans, useTranslation } from 'react-i18next';
 import usePizza from '~/context/usePizza';
 import Sup from '~/components/Sup';
+import { calcVerdict, calcSavingsPercent } from '~/utils/verdict';
 
 function VerdictSection() {
   const { t } = useTranslation();
   const { small, big, smallPricePerCm2, bigPricePerCm2 } = usePizza();
-  const bigWins = bigPricePerCm2 <= smallPricePerCm2;
+  const verdict = calcVerdict(smallPricePerCm2, bigPricePerCm2);
+  const isTie = verdict === 'tie';
+  const bigWins = verdict === 'big';
   const winnerCount = bigWins ? big.count : small.count;
   const winnerLabel = bigWins ? t('bigPizza') : t('smallPizza');
   const loserCount = bigWins ? small.count : big.count;
   const loserSize = bigWins ? t('smaller') : t('bigger');
-  const percent = Math.round(
-    (Math.abs(smallPricePerCm2 - bigPricePerCm2) / Math.max(smallPricePerCm2, bigPricePerCm2)) * 100
-  );
-  const isTie = percent < 5;
+  const percent = calcSavingsPercent(smallPricePerCm2, bigPricePerCm2);
 
   const sectionClass =
     'flex-col gap-0.5 rounded-2xl border p-4 sm:px-8 sm:py-7 max-w-4xl flex w-full ' +

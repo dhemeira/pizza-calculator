@@ -2,9 +2,7 @@ import { useState } from 'react';
 import type { ReactNode } from 'react';
 import PizzaContext from './PizzaContext';
 import type { PizzaSize } from './PizzaContext';
-
-const calcArea = ({ count, diameter }: PizzaSize) =>
-  Math.round(Math.PI * (diameter / 2) ** 2 * count);
+import { calcArea, calcPricePerCm2 } from '~/utils/pizza';
 
 export default function PizzaProvider({ children }: { children: ReactNode }) {
   const [small, setSmall] = useState<PizzaSize>({ count: 2, diameter: 32, price: 4000 });
@@ -14,9 +12,8 @@ export default function PizzaProvider({ children }: { children: ReactNode }) {
   const bigArea = calcArea(big);
   const smallTotalPrice = small.count * small.price;
   const bigTotalPrice = big.count * big.price;
-  const smallPricePerCm2 =
-    smallArea > 0 ? Math.round((smallTotalPrice / smallArea) * 100) / 100 : 0;
-  const bigPricePerCm2 = bigArea > 0 ? Math.round((bigTotalPrice / bigArea) * 100) / 100 : 0;
+  const smallPricePerCm2 = calcPricePerCm2(smallTotalPrice, smallArea);
+  const bigPricePerCm2 = calcPricePerCm2(bigTotalPrice, bigArea);
 
   return (
     <PizzaContext
