@@ -11,9 +11,9 @@ function LangPicker() {
   const translateX = `translateX(${String(activeIndex * 100)}%)`;
   return (
     <div className="flex w-full justify-end">
-      <div className="relative flex h-9 w-24 gap-0 rounded-full border border-border bg-surface p-1">
+      <div className="border-border bg-surface relative flex h-9 w-24 gap-0 rounded-full border p-1">
         <span
-          className="absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-accent transition-transform duration-300 ease-in-out"
+          className="bg-accent absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full transition-transform duration-300 ease-in-out"
           style={{ transform: translateX }}
         />
         {keys.map((lng) => (
