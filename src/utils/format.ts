@@ -1,5 +1,7 @@
+import i18n from '~/i18n/config';
+
 export const formatNumber = (value: number) =>
-  new Intl.NumberFormat('en', { useGrouping: true }).format(value).replace(/,/g, ' ');
+  new Intl.NumberFormat(i18n.language, { useGrouping: true }).format(value);
 
 export const parseNumber = (value: string) => {
   const digits = value.replace(/\D/g, '');

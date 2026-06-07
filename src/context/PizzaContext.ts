@@ -11,6 +11,12 @@ export interface PizzaContextValue {
   big: PizzaSize;
   setSmall: (values: PizzaSize) => void;
   setBig: (values: PizzaSize) => void;
+  smallArea: number;
+  bigArea: number;
+  smallTotalPrice: number;
+  bigTotalPrice: number;
+  smallPricePerCm2: number;
+  bigPricePerCm2: number;
 }
 
 const PizzaContext = createContext<PizzaContextValue | null>(null);
