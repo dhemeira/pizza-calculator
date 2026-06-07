@@ -3,5 +3,9 @@
   "eyebrow": "Value Comparison",
   "heroText": "Fill the details - see which option gives you more pizza for your money, and exactly how much pizza you’re getting either way.",
   "smallPizza": "Small Pizza",
-  "bigPizza": "Big Pizza"
+  "bigPizza": "Big Pizza",
+  "count": "How Many",
+  "diameter": "Diameter per Pizza",
+  "price": "Price per Pizza",
+  "currency": "HUF"
 }

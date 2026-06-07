@@ -3,5 +3,9 @@
   "eyebrow": "Ár-Érték Összehasonlítás",
   "heroText": "Töltsd ki a részleteket - nézd meg melyik opcióval kapsz több pizzát a pénzedért, és pontosan mennyit is kapsz.",
   "smallPizza": "Kicsi Pizza",
-  "bigPizza": "Nagy Pizza"
+  "bigPizza": "Nagy Pizza",
+  "count": "Hány darab",
+  "diameter": "Átmérő pizzánként",
+  "price": "Ár pizzánként",
+  "currency": "Ft"
 }

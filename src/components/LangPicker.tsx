@@ -10,8 +10,8 @@ function LangPicker() {
   const activeIndex = keys.indexOf(i18n.resolvedLanguage ?? 'en');
   const translateX = `translateX(${String(activeIndex * 100)}%)`;
   return (
-    <div className="w-full justify-end flex">
-      <div className="relative flex gap-0 p-1 rounded-full bg-surface border border-border w-24 h-9">
+    <div className="flex w-full justify-end">
+      <div className="relative flex h-9 w-24 gap-0 rounded-full border border-border bg-surface p-1">
         <span
           className="absolute top-1 bottom-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-accent transition-transform duration-300 ease-in-out"
           style={{ transform: translateX }}
@@ -20,7 +20,7 @@ function LangPicker() {
           <button
             key={lng}
             className={
-              'w-full rounded-full text-base text-center vertical-center font-medium z-10 transition-colors duration-300 ease-in-out ' +
+              'vertical-center z-10 w-full rounded-full text-center text-base font-medium transition-colors duration-300 ease-in-out ' +
               (i18n.resolvedLanguage === lng ? 'text-surface' : 'text-text')
             }
             onClick={() => {
