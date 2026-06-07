@@ -1,9 +1,10 @@
 import { Trans, useTranslation } from 'react-i18next';
 import usePizza from '~/context/usePizza';
-import Sup from '~/components/Sup';
+import Sup from '~/components/ui/Sup';
 import { calcVerdict, calcSavingsPercent } from '~/utils/verdict';
+import SectionCard from '~/components/ui/SectionCard';
 
-function VerdictSection() {
+function Verdict() {
   const { t } = useTranslation();
   const { small, big, smallPricePerCm2, bigPricePerCm2 } = usePizza();
   const verdict = calcVerdict(smallPricePerCm2, bigPricePerCm2);
@@ -14,10 +15,6 @@ function VerdictSection() {
   const loserCount = bigWins ? small.count : big.count;
   const loserSize = bigWins ? t('smaller') : t('bigger');
   const percent = calcSavingsPercent(smallPricePerCm2, bigPricePerCm2);
-
-  const sectionClass =
-    'flex-col gap-0.5 rounded-2xl border p-4 sm:px-8 sm:py-7 max-w-4xl flex w-full ' +
-    (isTie ? 'border-text-muted bg-border' : 'bg-success-bg border-success   ');
 
   const eyebrowClass = isTie ? 'text-text-muted' : 'text-success';
 
@@ -42,12 +39,12 @@ function VerdictSection() {
   );
 
   return (
-    <section className={sectionClass}>
+    <SectionCard variant={isTie ? 'tie' : 'win'} className="gap-0.5">
       <span className={`${eyebrowClass} text-xs font-medium uppercase`}>{t('verdictEyebrow')}</span>
       <h2 className="font-title text-text text-3xl font-medium tracking-tight">{heading}</h2>
       <p className="text-text-muted text-base leading-snug font-normal">{body}</p>
-    </section>
+    </SectionCard>
   );
 }
 
-export default VerdictSection;
+export default Verdict;

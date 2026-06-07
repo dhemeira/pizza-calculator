@@ -1,9 +1,9 @@
 import { Trans, useTranslation } from 'react-i18next';
-import Sup from '~/components/Sup';
+import Sup from '~/components/ui/Sup';
 import usePizza from '~/context/usePizza';
 import { formatNumber } from '~/utils/format';
 
-function SumColumn({ size }: { size: 'small' | 'big' }) {
+function TotalsCard({ size }: { size: 'small' | 'big' }) {
   const { t } = useTranslation();
   const { smallArea, bigArea, smallTotalPrice, bigTotalPrice, smallPricePerCm2, bigPricePerCm2 } =
     usePizza();
@@ -45,4 +45,4 @@ function SumColumn({ size }: { size: 'small' | 'big' }) {
   );
 }
 
-export default SumColumn;
+export default TotalsCard;

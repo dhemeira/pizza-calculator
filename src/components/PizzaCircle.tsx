@@ -1,6 +1,6 @@
 import { Trans } from 'react-i18next';
 import { formatNumber } from '~/utils/format';
-import Sup from '~/components/Sup';
+import Sup from '~/components/ui/Sup';
 
 interface PizzaCircleProps {
   count: number;

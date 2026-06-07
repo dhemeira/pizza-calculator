@@ -2,50 +2,48 @@ import { Trans, useTranslation } from 'react-i18next';
 import usePizza from '~/context/usePizza';
 import { formatNumber } from '~/utils/format';
 import AreaBar from '~/components/AreaBar';
+import SectionCard from '~/components/ui/SectionCard';
+import SectionHeader from '~/components/ui/SectionHeader';
+import { calcAreaPercent } from '~/utils/pizza';
 
-function AreaSection() {
+function AreaBreakdown() {
   const { t } = useTranslation();
   const { small, big, smallArea, bigArea } = usePizza();
 
   const maxArea = Math.max(smallArea, bigArea);
-  const smallBarWidth = `${((smallArea / maxArea) * 100).toFixed(2)}%`;
-  const bigBarWidth = `${((bigArea / maxArea) * 100).toFixed(2)}%`;
+  const smallBarRatio = smallArea / maxArea;
+  const bigBarRatio = bigArea / maxArea;
 
-  const biggerArea = Math.max(smallArea, bigArea);
-  const smallerArea = Math.min(smallArea, bigArea);
-  const percent =
-    smallerArea > 0 ? Math.round(((biggerArea - smallerArea) / smallerArea) * 100) : 0;
-  const isTie = percent < 5;
+  const areaPercent = calcAreaPercent(smallArea, bigArea);
+  const isTie = areaPercent < 5;
   const bigWins = bigArea > smallArea;
 
   const singleSmallArea = smallArea / small.count;
-  const ratio = Math.round((bigArea / singleSmallArea) * 10) / 10;
+  const bigToSmallAreaRatio = Math.round((bigArea / singleSmallArea) * 10) / 10;
 
   const summaryKey = isTie ? 'areaTieText' : bigWins ? 'areaBigWinsText' : 'areaSmallWinsText';
 
   return (
-    <section className="border-border bg-surface flex w-full max-w-4xl flex-col gap-4 rounded-2xl border p-4 sm:gap-6 sm:px-8 sm:py-7">
-      <div className="flex flex-col gap-0.5">
-        <span className="text-accent text-xs font-medium uppercase">{t('areaEyebrow')}</span>
-        <h2 className="font-title text-text text-2xl font-medium tracking-tight">
-          {t('areaTitle')}
-        </h2>
-        <p className="text-text-muted text-sm leading-snug font-normal">{t('areaSubtitle')}</p>
-      </div>
+    <SectionCard className="gap-4 sm:gap-6">
+      <SectionHeader
+        eyebrow={t('areaEyebrow')}
+        title={t('areaTitle')}
+        subtitle={t('areaSubtitle')}
+      />
 
       <div className="flex flex-col gap-3">
         <AreaBar
           count={small.count}
           label={t('smallPizza')}
           area={smallArea}
-          barWidth={smallBarWidth}
+          ratio={smallBarRatio}
           isWinner={smallArea >= bigArea}
         />
         <AreaBar
           count={big.count}
           label={t('bigPizza')}
           area={bigArea}
-          barWidth={bigBarWidth}
+          ratio={bigBarRatio}
           isWinner={bigArea > smallArea}
         />
       </div>
@@ -54,7 +52,11 @@ function AreaSection() {
         <p className="text-text text-base leading-snug font-normal">
           <Trans
             i18nKey={summaryKey}
-            values={{ percent, ratio: formatNumber(ratio), bigCount: big.count }}
+            values={{
+              percent: areaPercent,
+              ratio: formatNumber(bigToSmallAreaRatio),
+              bigCount: big.count,
+            }}
             components={{
               em: <span className="text-accent font-title italic" />,
               em2: <span className="text-accent font-title italic" />,
@@ -62,8 +64,8 @@ function AreaSection() {
           />
         </p>
       </div>
-    </section>
+    </SectionCard>
   );
 }
 
-export default AreaSection;
+export default AreaBreakdown;

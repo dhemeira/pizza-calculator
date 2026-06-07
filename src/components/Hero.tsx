@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
 
-function HeroSection() {
+function Hero() {
   const { t } = useTranslation();
   return (
     <section className="flex w-full max-w-4xl flex-col py-3">
@@ -19,4 +19,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection;
+export default Hero;

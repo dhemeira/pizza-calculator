@@ -1,16 +1,16 @@
 import { createContext } from 'react';
 
-export interface PizzaSize {
+export interface Pizza {
   count: number;
   diameter: number;
   price: number;
 }
 
 export interface PizzaContextValue {
-  small: PizzaSize;
-  big: PizzaSize;
-  setSmall: (values: PizzaSize) => void;
-  setBig: (values: PizzaSize) => void;
+  small: Pizza;
+  big: Pizza;
+  setSmall: (values: Pizza) => void;
+  setBig: (values: Pizza) => void;
   smallArea: number;
   bigArea: number;
   smallTotalPrice: number;
