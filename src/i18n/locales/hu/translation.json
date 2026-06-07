@@ -31,5 +31,8 @@
   "areaTieText": "Mindkét opcióval <em>lényegében ugyanannyi</em> pizzát kapsz. <em2>{{ratio}} kicsi pizza</em2> kellene, hogy elérje 1 nagy pizza méretét.",
   "areaBigWinsText": "A nagy opcióval <em>{{percent}}%-al több</em> pizzát kapsz. <em2>{{ratio}} kicsi pizza</em2> kellene, hogy elérje {{bigCount}} nagy pizza méretét.",
   "areaSmallWinsText": "A kicsi opcióval <em>{{percent}}%-al több</em> pizzát kapsz. <em2>{{ratio}} kicsi pizza</em2> kellene, hogy elérje {{bigCount}} nagy pizza méretét.",
-  "footer": "Matek: terület = <pi/> x (átmérő / 2)<sup>2</sup> | nyertes az, aminek alacsonyabb az ár / területe"
+  "footer": "Matek: terület = <pi/> x (átmérő / 2)<sup>2</sup> | nyertes az, aminek alacsonyabb az ár / területe",
+  "errorTitle": "Valami hiba történt.",
+  "errorRetry": "Próbáld újra",
+  "clampedRange": "Az érték a megengedett tartományra lett igazítva ({{min}}-{{max}}{{unit}})"
 }
