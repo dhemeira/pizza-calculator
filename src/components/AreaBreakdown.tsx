@@ -4,6 +4,7 @@ import { formatNumber } from '~/utils/format';
 import AreaBar from '~/components/AreaBar';
 import SectionCard from '~/components/ui/SectionCard';
 import SectionHeader from '~/components/ui/SectionHeader';
+import { calcAreaPercent } from '~/utils/pizza';
 
 function AreaBreakdown() {
   const { t } = useTranslation();
@@ -13,10 +14,7 @@ function AreaBreakdown() {
   const smallBarRatio = smallArea / maxArea;
   const bigBarRatio = bigArea / maxArea;
 
-  const largerArea = Math.max(smallArea, bigArea);
-  const smallerArea = Math.min(smallArea, bigArea);
-  const areaPercent =
-    smallerArea > 0 ? Math.round(((largerArea - smallerArea) / smallerArea) * 100) : 0;
+  const areaPercent = calcAreaPercent(smallArea, bigArea);
   const isTie = areaPercent < 5;
   const bigWins = bigArea > smallArea;
 

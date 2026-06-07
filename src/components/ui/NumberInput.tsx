@@ -1,7 +1,6 @@
-import { type ReactNode } from 'react';
+import { useId, type ReactNode } from 'react';
 
 interface NumberInputProps {
-  id: string;
   label: string;
   value: string;
   unit?: string | null;
@@ -12,7 +11,6 @@ interface NumberInputProps {
 }
 
 function NumberInput({
-  id,
   label,
   value,
   unit,
@@ -21,6 +19,7 @@ function NumberInput({
   onChange,
   onBlur,
 }: NumberInputProps) {
+  const id = useId();
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className="text-text-muted text-xs font-medium uppercase">

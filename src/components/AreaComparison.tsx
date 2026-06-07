@@ -3,6 +3,7 @@ import usePizza from '~/context/usePizza';
 import PizzaCircle from '~/components/PizzaCircle';
 import SectionCard from '~/components/ui/SectionCard';
 import SectionHeader from '~/components/ui/SectionHeader';
+import { calcAreaPercent } from '~/utils/pizza';
 
 function AreaDeltaLabel({
   areaPercent,
@@ -36,10 +37,7 @@ function AreaComparison() {
   const smallCircleRatio = Math.sqrt(smallArea / maxArea);
   const bigCircleRatio = Math.sqrt(bigArea / maxArea);
 
-  const largerArea = Math.max(smallArea, bigArea);
-  const smallerArea = Math.min(smallArea, bigArea);
-  const areaPercent =
-    smallerArea > 0 ? Math.round(((largerArea - smallerArea) / smallerArea) * 100) : 0;
+  const areaPercent = calcAreaPercent(smallArea, bigArea);
   const smallPizzaIsLarger = smallArea > bigArea;
 
   return (

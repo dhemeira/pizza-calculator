@@ -27,7 +27,6 @@ function PizzaInput({
   field: Field;
   size: 'small' | 'big';
 }) {
-  const id = useId();
   const clampId = useId();
   const { t } = useTranslation();
   const { small, big, setSmall, setBig } = usePizza();
@@ -62,7 +61,6 @@ function PizzaInput({
 
   return (
     <NumberInput
-      id={id}
       label={label}
       value={formatNumber(values[field])}
       unit={unit}
