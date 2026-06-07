@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import usePizza from '~/context/usePizza';
 import { formatNumber, parseNumber } from '~/utils/format';
@@ -15,6 +15,7 @@ function FormInput({
   const id = useId();
   const { t } = useTranslation();
   const { small, big, setSmall, setBig } = usePizza();
+  const [clamped, setClamped] = useState(false);
 
   const values = size === 'small' ? small : big;
   const setValues = size === 'small' ? setSmall : setBig;
@@ -29,13 +30,18 @@ function FormInput({
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setClamped(false);
     setValues({ ...values, [type]: parseNumber(e.target.value) });
   };
 
   const handleBlur = () => {
     const { min, max } = clampRanges[type];
-    setValues({ ...values, [type]: Math.min(max, Math.max(min, values[type])) });
+    const clamped = Math.min(max, Math.max(min, values[type]));
+    if (clamped !== values[type]) setClamped(true);
+    setValues({ ...values, [type]: clamped });
   };
+
+  const { min, max } = clampRanges[type];
 
   return (
     <div className="flex flex-col gap-2">
@@ -57,6 +63,15 @@ function FormInput({
           </span>
         )}
       </div>
+      {clamped && (
+        <p className="text-success text-xs font-medium">
+          {t('clampedRange', {
+            min: formatNumber(min),
+            max: formatNumber(max),
+            unit: unit ? ` ${unit}` : '',
+          })}
+        </p>
+      )}
     </div>
   );
 }

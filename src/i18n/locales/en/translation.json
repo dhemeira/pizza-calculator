@@ -31,5 +31,8 @@
   "areaTieText": "Both options give you <em>essentially the same amount</em> of total pizza. It would take <em2>{{ratio}} small pizzas</em2> to match 1 big pizza's area.",
   "areaBigWinsText": "The big option gives you <em>{{percent}}% more</em> total pizza. It would take <em2>{{ratio}} small pizzas</em2> to match {{bigCount}} big pizza's area.",
   "areaSmallWinsText": "The small option gives you <em>{{percent}}% more</em> total pizza. It would take <em2>{{ratio}} small pizzas</em2> to match {{bigCount}} big pizza's area.",
-  "footer": "Math: area = <pi/> x (diameter / 2)<sup>2</sup> | winner is whichever has lower price per area"
+  "footer": "Math: area = <pi/> x (diameter / 2)<sup>2</sup> | winner is whichever has lower price per area",
+  "errorTitle": "Something went wrong.",
+  "errorRetry": "Try again",
+  "clampedRange": "Value adjusted to allowed range ({{min}}-{{max}}{{unit}})"
 }
