@@ -11,7 +11,7 @@ function FormColumn({ size }: { size: 'small' | 'big' }) {
             'bg-accent inline-block rounded-full ' + (size === 'small' ? 'h-3 w-3' : 'h-6 w-6')
           }
         />
-        <h2 className="font-title text-2xl font-medium">{t(`${size}Pizza`)}</h2>
+        <h2 className="font-title text-text text-2xl font-medium">{t(`${size}Pizza`)}</h2>
       </div>
       <FormInput label={t('count')} size={size} type="count" />
       <FormInput label={t('diameter')} size={size} type="diameter" />
