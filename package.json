@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "publish": "eslint . --fix",
+    "lint:fix": "eslint . --fix",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
     "prepare": "husky"
