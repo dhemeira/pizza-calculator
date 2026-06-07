@@ -1,33 +1,33 @@
 import { useTranslation } from 'react-i18next';
-import LangPicker from './components/LangPicker';
-import HeroSection from './components/HeroSection';
+import LanguagePicker from './components/LanguagePicker';
+import Hero from './components/Hero';
 import { lazy, Suspense } from 'react';
 import PizzaProvider from '~/context/PizzaProvider';
-import ErrorBoundary from './components/ErrorBoundary';
+import ErrorBoundary from './components/ui/ErrorBoundary';
 
-const InputSection = lazy(() => import('./components/InputSection'));
-const VerdictSection = lazy(() => import('./components/VerdictSection'));
-const SumSection = lazy(() => import('./components/SumSection'));
-const CompareSection = lazy(() => import('./components/CompareSection'));
-const AreaSection = lazy(() => import('./components/AreaSection'));
-const FooterSection = lazy(() => import('./components/FooterSection'));
+const PizzaForm = lazy(() => import('./components/PizzaForm'));
+const Verdict = lazy(() => import('./components/Verdict'));
+const PizzaTotals = lazy(() => import('./components/PizzaTotals'));
+const AreaComparison = lazy(() => import('./components/AreaComparison'));
+const AreaBreakdown = lazy(() => import('./components/AreaBreakdown'));
+const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
   useTranslation();
   return (
     <PizzaProvider>
       <div className="container mx-auto flex min-h-screen flex-col items-center gap-4 p-4 sm:gap-7">
-        <LangPicker />
+        <LanguagePicker />
         <ErrorBoundary>
-          <HeroSection />
+          <Hero />
           <Suspense>
-            <InputSection />
-            <VerdictSection />
-            <SumSection />
-            <CompareSection />
-            <AreaSection />
+            <PizzaForm />
+            <Verdict />
+            <PizzaTotals />
+            <AreaComparison />
+            <AreaBreakdown />
             <hr className="text-border w-full max-w-4xl" />
-            <FooterSection />
+            <Footer />
           </Suspense>
         </ErrorBoundary>
       </div>

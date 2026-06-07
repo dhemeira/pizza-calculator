@@ -1,6 +1,6 @@
-import type { PizzaSize } from '~/context/PizzaContext';
+import type { Pizza } from '~/context/PizzaContext';
 
-export const calcArea = ({ count, diameter }: PizzaSize) =>
+export const calcArea = ({ count, diameter }: Pizza) =>
   Math.round(Math.PI * (diameter / 2) ** 2 * count);
 
 export const calcPricePerCm2 = (totalPrice: number, area: number) =>
