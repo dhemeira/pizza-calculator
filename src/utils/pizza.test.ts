@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calcArea, calcPricePerCm2 } from './pizza';
+import { calcArea, calcPricePerCm2, calcAreaPercent } from './pizza';
 
 describe('calcArea', () => {
   it('calculates area for a single pizza', () => {
@@ -23,6 +23,29 @@ describe('calcArea', () => {
 
   it('rounds to nearest integer', () => {
     const result = calcArea({ count: 1, diameter: 45, price: 0 });
+    expect(Number.isInteger(result)).toBe(true);
+  });
+});
+
+describe('calcAreaPercent', () => {
+  it('returns the percentage difference relative to the smaller area', () => {
+    expect(calcAreaPercent(100, 200)).toBe(100);
+  });
+
+  it('is symmetric — order of arguments does not matter', () => {
+    expect(calcAreaPercent(100, 200)).toBe(calcAreaPercent(200, 100));
+  });
+
+  it('returns 0 when both areas are equal', () => {
+    expect(calcAreaPercent(500, 500)).toBe(0);
+  });
+
+  it('returns 0 when the smaller area is 0 to avoid division by zero', () => {
+    expect(calcAreaPercent(0, 500)).toBe(0);
+  });
+
+  it('rounds to nearest integer', () => {
+    const result = calcAreaPercent(100, 133);
     expect(Number.isInteger(result)).toBe(true);
   });
 });
