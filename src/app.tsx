@@ -6,6 +6,7 @@ import PizzaProvider from '~/context/PizzaProvider';
 
 const InputSection = lazy(() => import('./components/InputSection'));
 const VerdictSection = lazy(() => import('./components/VerdictSection'));
+const AreaSection = lazy(() => import('./components/AreaSection'));
 const FooterSection = lazy(() => import('./components/FooterSection'));
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <HeroSection />
         <InputSection />
         <VerdictSection />
+        <AreaSection />
         <hr className="text-border w-full max-w-4xl" />
         <FooterSection />
       </div>
