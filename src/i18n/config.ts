@@ -15,6 +15,9 @@ await i18n
       ['hu-HU']: ['hu'],
       default: ['en'],
     },
+    detection: {
+      caches: ['localStorage'],
+    },
     debug: false,
   });
 

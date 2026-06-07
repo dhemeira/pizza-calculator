@@ -19,6 +19,8 @@ function LangPicker() {
         {keys.map((lng) => (
           <button
             key={lng}
+            aria-label={lngs[lng].displayName}
+            aria-pressed={i18n.resolvedLanguage === lng}
             className={
               'vertical-center z-10 w-full rounded-full py-1 text-center text-base font-medium transition-colors duration-300 ease-in-out ' +
               (i18n.resolvedLanguage === lng ? 'text-surface ' : 'text-text ') +

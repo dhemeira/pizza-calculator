@@ -34,5 +34,6 @@
   "footer": "Matek: terület = <pi/> x (átmérő / 2)<sup>2</sup> | nyertes az, aminek alacsonyabb az ár / területe",
   "errorTitle": "Valami hiba történt.",
   "errorRetry": "Próbáld újra",
-  "clampedRange": "Az érték a megengedett tartományra lett igazítva ({{min}}-{{max}}{{unit}})"
+  "clampedRange": "Az érték a megengedett tartományra lett igazítva ({{min}}-{{max}}{{unit}})",
+  "formLabel": "Pizza összehasonlítás beviteli mezők"
 }

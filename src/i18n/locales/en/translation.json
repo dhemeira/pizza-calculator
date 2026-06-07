@@ -34,5 +34,6 @@
   "footer": "Math: area = <pi/> x (diameter / 2)<sup>2</sup> | winner is whichever has lower price per area",
   "errorTitle": "Something went wrong.",
   "errorRetry": "Try again",
-  "clampedRange": "Value adjusted to allowed range ({{min}}-{{max}}{{unit}})"
+  "clampedRange": "Value adjusted to allowed range ({{min}}-{{max}}{{unit}})",
+  "formLabel": "Pizza comparison inputs"
 }

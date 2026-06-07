@@ -7,6 +7,7 @@ function FormColumn({ size }: { size: 'small' | 'big' }) {
     <div className="flex flex-1 flex-col gap-4">
       <div className="flex items-center gap-2">
         <span
+          aria-hidden="true"
           className={
             'bg-accent inline-block rounded-full ' + (size === 'small' ? 'h-3 w-3' : 'h-6 w-6')
           }

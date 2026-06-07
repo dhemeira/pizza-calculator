@@ -25,7 +25,10 @@ function AreaBar({ count, label, area, barWidth, isWinner }: AreaBarProps) {
           />
         </span>
       </div>
-      <div className="h-4 w-full overflow-hidden rounded-full">
+      <div
+        className="h-4 w-full overflow-hidden rounded-full"
+        role="img"
+        aria-label={`${String(count)} x ${label}: ${barWidth}`}>
         <div
           className={`h-full rounded-full ${isWinner ? 'bg-success' : 'bg-accent'}`}
           style={{ width: barWidth }}
